@@ -18,14 +18,18 @@ glimpse(CAN_06_CT_AGE)
 
 CAN_11_CT_AGE <- as.tibble(readOGR("./CT_Data/2011", "ct_age_total_joined"))
 CAN_11_CT_EDU <- as.tibble(readOGR("./CT_Data/2011", "ct_edu_total"))
-#CAN_11_CT_IMMI <- as.tibble(readOGR("./CT Data/2011", "ct_immi_total"))
+CAN_11_CT_IMMI <- readOGR("./CT_Data/2011", "ct_immi_total")
 CAN_11_CT_LANG <- as.tibble(readOGR("./CT_Data/2011", "ct_lang_total"))
 CAN_11_CT_MFH <- as.tibble(readOGR("./CT_Data/2011", "ct_mfh_total"))
 CAN_11_CT_MOB <- as.tibble(readOGR("./CT_Data/2011", "ct_mob_total"))
 
+CAN_11_CT_IMMI <- as.tibble(CAN_11_CT_IMMI)
+
+write_excel_csv(CAN_11_CT_IMMI, "CAN_11_CT_IMMI.csv")
+
 mylist <- list(CAN_11_CT_AGE = CAN_11_CT_AGE,
                CAN_11_CT_EDU = CAN_11_CT_EDU,
-               #CAN_11_CT_IMMI = CAN_11_CT_IMMI,
+               CAN_11_CT_IMMI = CAN_11_CT_IMMI,
                CAN_11_CT_LANG = CAN_11_CT_LANG,
                CAN_11_CT_MFH = CAN_11_CT_MFH,
                CAN_11_CT_MOB = CAN_11_CT_MOB)
